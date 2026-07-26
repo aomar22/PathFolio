@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PathFolio — AI Student Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar glass-card">
+        <div class="sidebar-main">
+          <div class="brand">
+            <img src="logo.png" alt="PathFolio logo" class="brand-logo" />
+            <div>
+              <p class="brand-tagline">
+                <strong>PathFolio</strong><br />
+                Document.<br />
+                Reflect.<br />
+                Grow.
+              </p>
+            </div>
+          </div>
+
+          <nav class="nav-list">
+            <p class="nav-group-label">Workspace</p>
+            <a href="#" class="nav-item active"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+            <a href="#" class="nav-item"><i data-lucide="folder-kanban"></i><span>Projects</span></a>
+            <a href="#" class="nav-item"><i data-lucide="notebook-pen"></i><span>Reflections</span></a>
+            <a href="#" class="nav-item"><i data-lucide="sparkles"></i><span>AI Guide</span></a>
+            <a href="#" class="nav-item"><i data-lucide="briefcase-business"></i><span>Portfolio Builder</span></a>
+            <a href="#" class="nav-item"><i data-lucide="badge-check"></i><span>Skills</span></a>
+            <a href="#" class="nav-item"><i data-lucide="chart-column"></i><span>Analytics</span></a>
+
+            <p class="nav-group-label nav-utility">Utilities</p>
+            <a href="#" class="nav-item"><i data-lucide="settings"></i><span>Settings</span></a>
+            <a href="#" class="nav-item"><i data-lucide="log-out"></i><span>Log Out</span></a>
+            <a href="#" class="nav-item"><i data-lucide="circle-help"></i><span>Help</span></a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="top-nav glass-card">
+          <label class="search-wrap">
+            <i data-lucide="search"></i>
+            <input type="text" placeholder="Search projects, skills, reflections..." />
+          </label>
+
+          <div class="top-actions">
+            <button class="icon-btn"><i data-lucide="bell"></i></button>
+            <button class="icon-btn ai"><i data-lucide="bot"></i></button>
+
+            <div class="user-meta">
+              <img src="generic-avatar.svg" alt="Generic user avatar" />
+              <div>
+                <h4>User</h4>
+                <p>Computer Programming</p>
+              </div>
+            </div>
+
+            <button class="new-project-btn">
+              <i data-lucide="plus"></i>
+              New Project
+            </button>
+          </div>
+        </header>
+
+        <section class="hero">
+          <h2>Welcome back, User 👋</h2>
+          <p>
+            Keep documenting your learning journey.
+            <br />
+            Every project brings you closer to your career.
+          </p>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="card continue-card glass-card">
+            <div class="card-head">
+              <h3>Continue Your Learning Journey</h3>
+              <span class="chip blue">In Progress</span>
+            </div>
+            <p class="muted">Database Management System</p>
+
+            <div class="db-illustration" aria-hidden="true">
+              <div class="orb a"></div>
+              <div class="orb b"></div>
+              <div class="stack">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="progress-meta">
+              <div>
+                <p>Reflection Progress</p>
+                <strong>80%</strong>
+              </div>
+              <div class="time-remaining">
+                <p>Estimated time remaining</p>
+                <strong>4 minutes</strong>
+              </div>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="--value:80%"></div>
+            </div>
+            <p class="encouraging-note">
+              You're almost done! Complete your reflection to unlock new AI insights.
+            </p>
+            <button class="primary-btn">Continue</button>
+          </article>
+
+          <article class="card ai-guide-card glass-card">
+            <div class="card-head">
+              <h3>AI Reflection Guide</h3>
+              <span class="chip neon">Live</span>
+            </div>
+            <p class="ai-guide-description">
+              Your AI learning companion to help you understand concepts, bridge learning gaps, improve projects, prepare for interviews, and complete reflections.
+            </p>
+            <div class="prompt-box">
+              <i data-lucide="sparkles"></i>
+              <input type="text" placeholder="Ask anything about your project..." />
+              <button><i data-lucide="send"></i></button>
+            </div>
+            <div class="quick-actions-wrap">
+              <button class="quick-action qa-brain">🧠 Explain a Concept</button>
+              <button class="quick-action qa-rocket">🚀 Improve My Project</button>
+              <button class="quick-action qa-growth">📈 Find Learning Gaps</button>
+              <button class="quick-action qa-briefcase">💼 Prepare for Interviews</button>
+              <button class="quick-action qa-reflect">📝 Help Me Reflect</button>
+            </div>
+          </article>
+
+          <article class="card streak-card glass-card">
+            <h3>Learning Streak</h3>
+            <div class="streak-ring">
+              <div class="inner">
+                <span>🔥</span>
+                <h4>12 days</h4>
+              </div>
+            </div>
+          </article>
+
+          <article class="card daily-goal-card glass-card">
+            <h3>Daily Goal Progress</h3>
+            <p class="muted">3 / 5 reflections completed</p>
+            <div class="progress-track small">
+              <div class="progress-fill warn" style="--value:60%"></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="stats-row">
+          <article class="stat-card glass-card">
+            <div class="stat-icon grad-violet"><i data-lucide="folder-git-2"></i></div>
+            <div><p>Projects</p><h4>18</h4></div>
+          </article>
+          <article class="stat-card glass-card">
+            <div class="stat-icon grad-cyan"><i data-lucide="book-open-check"></i></div>
+            <div><p>Reflections</p><h4>15</h4></div>
+          </article>
+          <article class="stat-card glass-card">
+            <div class="stat-icon grad-green"><i data-lucide="badge-check"></i></div>
+            <div><p>Skills Identified</p><h4>42</h4></div>
+          </article>
+          <article class="stat-card glass-card">
+            <div class="stat-icon grad-gold"><i data-lucide="briefcase-business"></i></div>
+            <div><p>Professional Portfolio</p><h4 class="stat-compact">6 Projects Ready</h4></div>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="card projects-card glass-card">
+            <div class="card-head"><h3>Recent Projects</h3><a href="#">View all</a></div>
+            <div class="project-list">
+              <div class="project-item">
+                <div class="thumb thumb1"></div>
+                <div><h4>Smart Attendance Tracker</h4><p>Node.js + MongoDB</p></div>
+                <span class="chip success">Reflection Complete</span>
+              </div>
+              <div class="project-item">
+                <div class="thumb thumb2"></div>
+                <div><h4>Inventory Control API</h4><p>Express + JWT</p></div>
+                <span class="chip blue">AI Suggestions</span>
+              </div>
+              <div class="project-item">
+                <div class="thumb thumb3"></div>
+                <div><h4>Portfolio CMS</h4><p>React + Supabase</p></div>
+                <span class="chip success">Portfolio Ready</span>
+              </div>
+              <div class="project-item">
+                <div class="thumb thumb4"></div>
+                <div><h4>Data Visualization App</h4><p>D3 + REST API</p></div>
+                <span class="chip warning">Reflection In Progress</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card radar-card glass-card">
+            <h3>Skill Radar</h3>
+            <canvas id="skillRadar" width="360" height="280" aria-label="Skill radar chart"></canvas>
+          </article>
+
+          <article class="card overall-card glass-card">
+            <h3>Career Readiness</h3>
+            <div class="overall-progress">
+              <svg class="ring" width="170" height="170" viewBox="0 0 170 170">
+                <defs>
+                  <linearGradient id="ringGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#6C63FF" />
+                    <stop offset="100%" stop-color="#00D4FF" />
+                  </linearGradient>
+                </defs>
+                <circle cx="85" cy="85" r="68" class="ring-track" />
+                <circle cx="85" cy="85" r="68" class="ring-fill" id="overallRing" />
+              </svg>
+              <div class="ring-text"><strong>78%</strong><p>Career Ready</p></div>
+            </div>
+            <p class="career-subtitle">You're on track for internship applications.</p>
+            <div class="milestone-wrap">
+              <div class="milestone-item">
+                <span>Next milestone</span>
+                <strong>Complete one cloud project</strong>
+              </div>
+              <div class="milestone-item improvement">
+                <span>Expected improvement</span>
+                <strong>+8%</strong>
+              </div>
+            </div>
+            <svg class="line-chart" viewBox="0 0 320 86" aria-hidden="true">
+              <path d="M0 65 C 45 35, 90 55, 130 28 C 180 6, 225 42, 320 18" />
+            </svg>
+          </article>
+
+          <article class="card events-card glass-card">
+            <h3>Upcoming Events</h3>
+            <div class="timeline">
+              <div class="event">
+                <i data-lucide="calendar-check-2"></i>
+                <div><h4>Reflection Reminder</h4><p>Today · 7:00 PM</p></div>
+              </div>
+              <div class="event">
+                <i data-lucide="calendar-clock"></i>
+                <div><h4>Project Deadline</h4><p>Mon · 11:59 PM</p></div>
+              </div>
+              <div class="event">
+                <i data-lucide="users"></i>
+                <div><h4>Team Meeting</h4><p>Tue · 4:30 PM</p></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card ai-insight-card glass-card">
+            <div class="card-head">
+              <h3>AI Recommendation</h3>
+              <i data-lucide="brain-circuit"></i>
+            </div>
+            <p>
+              Your portfolio demonstrates strong backend development skills.
+            </p>
+            <p class="ai-recommendation-note">
+              To become a stronger Full-Stack Developer, consider adding:
+            </p>
+            <ul class="ai-recommendation-list">
+              <li>JWT Authentication</li>
+              <li>Docker</li>
+              <li>Azure Deployment</li>
+            </ul>
+          </article>
+
+          <article class="card portfolio-card glass-card">
+            <div>
+              <h3>Professional Portfolio</h3>
+              <ul>
+                <li>✔ Select projects</li>
+                <li>✔ Generate professional portfolio</li>
+                <li>✔ Export PDF</li>
+                <li>✔ Share secure portfolio link</li>
+                <li>✔ Tailor portfolio for each job application</li>
+              </ul>
+              <button class="primary-btn">Build Your Portfolio</button>
+            </div>
+            <div class="folio-illus" aria-hidden="true">
+              <div class="folio-sheet"></div>
+              <div class="folio-sheet top"></div>
+              <div class="folio-badge"></div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
