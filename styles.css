@@ -119,12 +119,12 @@ body {
 
 .brand-logo {
   width: 46px;
-  height: 46px;
+  height: 52px;
   border-radius: 12px;
   box-shadow:
     0 0 16px rgba(108, 99, 255, 0.45),
     0 0 24px rgba(0, 212, 255, 0.25);
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .nav-list {
@@ -327,7 +327,8 @@ body {
 .primary-btn {
   border: none;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  /* background: linear-gradient(135deg, var(--primary), var(--secondary)); */
+    background: linear-gradient(195deg, var(--primary), var(--secondary));
   color: #fff;
   padding: 11px 15px;
   font-weight: 600;
