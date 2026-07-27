@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills - PathFolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="skills-ext.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar glass-card">
+        <div class="sidebar-main">
+          <div class="brand">
+            <img src="logo.png" alt="PathFolio logo" class="brand-logo" />
+            <div>
+              <p class="brand-tagline">
+                <strong>PathFolio</strong><br />
+                Document.<br />
+                Reflect.<br />
+                Grow.
+              </p>
+            </div>
+          </div>
+
+          <nav class="nav-list" aria-label="Main navigation">
+            <p class="nav-group-label">Workspace</p>
+            <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+            <a href="projects.html" class="nav-item"><i data-lucide="folder-kanban"></i><span>Projects</span></a>
+            <a href="ai-reflection-guide.html" class="nav-item"><i data-lucide="sparkles"></i><span>AI Reflection Workspace</span></a>
+            <a href="reflections-log.html" class="nav-item"><i data-lucide="notebook-pen"></i><span>Reflections</span></a>
+            <a href="portfolio-builder.html" class="nav-item"><i data-lucide="briefcase-business"></i><span>Portfolio Builder</span></a>
+            <a href="skills.html" class="nav-item active"><i data-lucide="badge-check"></i><span>Skills</span></a>
+            <a href="#" class="nav-item"><i data-lucide="chart-column"></i><span>Analytics</span></a>
+
+            <p class="nav-group-label nav-utility">Utilities</p>
+            <a href="#" class="nav-item"><i data-lucide="settings"></i><span>Settings</span></a>
+            <a href="#" class="nav-item"><i data-lucide="log-out"></i><span>Log Out</span></a>
+            <a href="#" class="nav-item"><i data-lucide="circle-help"></i><span>Help</span></a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="top-nav glass-card">
+          <label class="search-wrap">
+            <i data-lucide="search"></i>
+            <input type="text" placeholder="Search skills, projects, reflections..." />
+          </label>
+
+          <div class="top-actions">
+            <button class="icon-btn" aria-label="Notifications"><i data-lucide="bell"></i></button>
+            <button class="icon-btn" id="themeToggle" aria-label="Toggle light mode">
+              <i data-lucide="sun-moon"></i>
+            </button>
+            <button class="icon-btn ai" aria-label="AI actions"><i data-lucide="bot"></i></button>
+
+            <div class="user-meta">
+              <img src="generic-avatar.svg" alt="Generic user avatar" />
+              <div>
+                <h4>User</h4>
+                <p>Computer Programming</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="skills-page-header">
+          <div>
+            <h1>Skills</h1>
+            <p>Track your technical and professional skills developed through your projects and reflections.</p>
+          </div>
+          <div class="skills-header-actions">
+            <button class="secondary-skills-btn" id="refreshSkillsBtn">Refresh Skills</button>
+          </div>
+        </section>
+
+        <section class="skills-overview-grid" aria-label="Skills overview">
+          <article class="summary-card glass-card skills-summary-card">
+            <div class="summary-icon grad-violet"><i data-lucide="code-2"></i></div>
+            <div>
+              <p>Technical Skills</p>
+              <h3 id="technicalSkillsCount">0</h3>
+            </div>
+          </article>
+          <article class="summary-card glass-card skills-summary-card">
+            <div class="summary-icon grad-cyan"><i data-lucide="messages-square"></i></div>
+            <div>
+              <p>Professional Skills</p>
+              <h3 id="professionalSkillsCount">0</h3>
+            </div>
+          </article>
+          <article class="summary-card glass-card skills-summary-card">
+            <div class="summary-icon grad-green"><i data-lucide="star"></i></div>
+            <div>
+              <p>Strongest Skills</p>
+              <h3 id="strongestSkillsCount">0</h3>
+            </div>
+          </article>
+          <article class="summary-card glass-card skills-summary-card">
+            <div class="summary-icon grad-gold"><i data-lucide="trending-up"></i></div>
+            <div>
+              <p>Skills to Improve</p>
+              <h3 id="skillsToImproveCount">0</h3>
+            </div>
+          </article>
+        </section>
+
+        <section class="card glass-card skills-toolbar-card" aria-label="Skills search and filters">
+          <div class="skills-toolbar-grid">
+            <label class="search-wrap skills-search-wrap">
+              <i data-lucide="search"></i>
+              <input id="skillSearch" type="text" placeholder="Search Skills" />
+            </label>
+
+            <select id="categoryFilter" class="skills-select" aria-label="Filter by category">
+              <option value="">All Categories</option>
+              <option value="technical">Technical</option>
+              <option value="professional">Professional</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="skills-layout">
+          <article class="card glass-card skills-library-card">
+            <div class="card-head skills-library-head">
+              <div>
+                <h3>Skills Library</h3>
+                <p class="muted">Browse the skills identified through your projects and reflections.</p>
+              </div>
+              <span class="chip blue" id="skillsResultsChip">0 Skills</span>
+            </div>
+            <div class="skills-grid" id="skillsGrid"></div>
+            <div class="skills-empty-state" id="skillsEmptyState" hidden>
+              <i data-lucide="search-x"></i>
+              <h4>No skills match your filters</h4>
+              <p>Try a broader category or clear the current filters.</p>
+            </div>
+          </article>
+
+          <aside class="skills-side-stack">
+              <article class="card glass-card improvement-card">
+                <div class="card-head">
+                  <h3>Skills to Improve</h3>
+                  <span class="chip warning" id="improveBadge">3 Focus Areas</span>
+                </div>
+                <div class="skills-improvement-list" id="skillsToImproveList"></div>
+              </article>
+            </aside>
+        </section>
+      </main>
+    </div>
+
+    <div class="skills-panel-overlay" id="detailsOverlay" hidden></div>
+    <aside class="skills-details-panel" id="detailsPanel" aria-hidden="true" hidden>
+      <div class="skills-details-head">
+        <div>
+          <p class="details-kicker">Skill Details</p>
+          <h2 id="detailsTitle">Skill Name</h2>
+        </div>
+        <button class="icon-btn details-close-btn" id="closeDetailsBtn" aria-label="Close skill details">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="details-meta">
+        <span class="chip blue" id="detailsCategoryChip">Category</span>
+        <span class="chip" id="detailsLevelChip">Level</span>
+      </div>
+
+      <div class="details-section">
+        <h4>Skill Description</h4>
+        <p id="detailsDescription"></p>
+      </div>
+
+      <div class="details-section">
+        <h4>Projects</h4>
+        <ul id="detailsProjects" class="details-list"></ul>
+      </div>
+
+      <div class="details-section">
+        <h4>Practical Suggestion</h4>
+        <p id="detailsSuggestion"></p>
+      </div>
+    </aside>
+
+    <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+    <script src="skills.js"></script>
+  </body>
+</html>
