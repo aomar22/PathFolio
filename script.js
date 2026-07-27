@@ -1,3 +1,35 @@
+const root = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+
+const applyTheme = (theme) => {
+  root.setAttribute('data-theme', theme);
+  if (themeToggle) {
+    themeToggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+  }
+};
+
+const initializeTheme = () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light' || savedTheme === 'dark') {
+    applyTheme(savedTheme);
+    return;
+  }
+
+  const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  applyTheme(prefersLight ? 'light' : 'dark');
+};
+
+initializeTheme();
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    const nextTheme = current === 'light' ? 'dark' : 'light';
+    applyTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
+  });
+}
+
 lucide.createIcons();
 
 const animateProgressBars = () => {
@@ -11,6 +43,10 @@ const animateProgressBars = () => {
 
 const animateOverallRing = () => {
   const ring = document.getElementById('overallRing');
+  if (!ring) {
+    return;
+  }
+
   const radius = 68;
   const circumference = 2 * Math.PI * radius;
   const percent = 78;
@@ -26,7 +62,15 @@ const animateOverallRing = () => {
 
 const drawRadar = () => {
   const canvas = document.getElementById('skillRadar');
+  if (!canvas) {
+    return;
+  }
+
   const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    return;
+  }
+
   const labels = ['Frontend', 'Backend', 'Database', 'DevOps', 'Problem Solving', 'Teamwork'];
   const values = [80, 74, 72, 56, 84, 78];
 
