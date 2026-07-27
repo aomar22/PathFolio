@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Reflection Workspace - PathFolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="ai-guide-ext.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar glass-card">
+        <div class="sidebar-main">
+          <div class="brand">
+            <img src="logo.png" alt="PathFolio logo" class="brand-logo" />
+            <div>
+              <p class="brand-tagline">
+                <strong>PathFolio</strong><br />
+                Document.<br />
+                Reflect.<br />
+                Grow.
+              </p>
+            </div>
+          </div>
+
+          <nav class="nav-list" aria-label="Main navigation">
+            <p class="nav-group-label">Workspace</p>
+            <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+            <a href="projects.html" class="nav-item"><i data-lucide="folder-kanban"></i><span>Projects</span></a>
+            <a href="ai-reflection-guide.html" class="nav-item active"><i data-lucide="sparkles"></i><span>AI Reflection Workspace</span></a>
+            <a href="reflections-log.html" class="nav-item"><i data-lucide="notebook-pen"></i><span>Reflections</span></a>
+            <a href="portfolio-builder.html" class="nav-item"><i data-lucide="briefcase-business"></i><span>Portfolio Builder</span></a>
+            <a href="#" class="nav-item"><i data-lucide="badge-check"></i><span>Skills</span></a>
+            <a href="#" class="nav-item"><i data-lucide="chart-column"></i><span>Analytics</span></a>
+
+            <p class="nav-group-label nav-utility">Utilities</p>
+            <a href="#" class="nav-item"><i data-lucide="settings"></i><span>Settings</span></a>
+            <a href="#" class="nav-item"><i data-lucide="log-out"></i><span>Log Out</span></a>
+            <a href="#" class="nav-item"><i data-lucide="circle-help"></i><span>Help</span></a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="top-nav glass-card">
+          <label class="search-wrap">
+            <i data-lucide="search"></i>
+            <input type="text" placeholder="Search reflections, skills, recommendations..." />
+          </label>
+
+          <div class="top-actions">
+            <button class="icon-btn" aria-label="Notifications"><i data-lucide="bell"></i></button>
+            <button class="icon-btn" id="themeToggle" aria-label="Toggle light mode">
+              <i data-lucide="sun-moon"></i>
+            </button>
+            <button class="icon-btn ai" aria-label="AI actions"><i data-lucide="bot"></i></button>
+
+            <div class="user-meta">
+              <img src="generic-avatar.svg" alt="Generic user avatar" />
+              <div>
+                <h4>User</h4>
+                <p>Computer Programming</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="guide-page-header" aria-label="AI reflection workspace header">
+          <div>
+            <h1>AI Reflection Workspace</h1>
+            <p>
+              Reflect on your academic work and let AI help you identify skills, improve your projects, and build a stronger professional portfolio.
+            </p>
+          </div>
+          <button class="new-project-btn" id="startNewReflectionBtn">
+            <i data-lucide="plus"></i>
+            Start New Reflection
+          </button>
+        </section>
+
+        <section class="card glass-card project-picker-card" aria-label="Current project selector">
+          <div class="card-head">
+            <h3>Current Project</h3>
+            <span class="chip blue" id="projectConnectionChip">GitHub Connected</span>
+          </div>
+
+          <div class="project-picker-grid single">
+            <select id="projectSelect" class="project-select" aria-label="Select current project for reflection">
+              <option value="">Select a project</option>
+            </select>
+          </div>
+
+          <div class="project-status-inline">
+            <span id="projectReflectionStatus">Reflection 70% Complete</span>
+            <span id="projectLastUpdated">Last Updated: Today</span>
+          </div>
+
+          <div class="project-quick-actions">
+            <button class="quick-project-btn" id="openProjectBtn"><i data-lucide="folder-open"></i><span>Open Project</span></button>
+            <button class="quick-project-btn" id="viewGithubBtn"><i data-lucide="github"></i><span>View GitHub</span></button>
+            <button class="quick-project-btn" id="liveDemoBtn"><i data-lucide="globe"></i><span>Live Demo</span></button>
+            <button class="quick-project-btn" id="uploadedFilesBtn"><i data-lucide="paperclip"></i><span>Uploaded Files</span></button>
+          </div>
+        </section>
+
+        <section class="card glass-card project-info-card requires-project" aria-label="Selected project information">
+          <div class="card-head">
+            <h3>Project Information</h3>
+            <span class="chip neon" id="projectTypeChip">Backend</span>
+          </div>
+          <div class="project-info-grid">
+            <div>
+              <p class="project-info-label">Project Title</p>
+              <strong id="projectInfoTitle">Inventory Control API</strong>
+            </div>
+            <div>
+              <p class="project-info-label">Repository</p>
+              <strong id="projectInfoRepoStatus">GitHub Connected</strong>
+            </div>
+            <div>
+              <p class="project-info-label">Started</p>
+              <strong id="projectInfoStarted">Jul 15</strong>
+            </div>
+            <div>
+              <p class="project-info-label">Last Updated</p>
+              <strong id="projectInfoUpdated">Today</strong>
+            </div>
+          </div>
+          <div class="skill-chip-wrap compact" id="projectTechStack">
+            <span class="skill-pill tech">Express</span>
+            <span class="skill-pill tech">MongoDB</span>
+          </div>
+        </section>
+
+        <section class="card glass-card guide-featured requires-project" aria-label="Continue reflection">
+          <div class="guide-featured-main">
+            <div class="card-head">
+              <h3>Continue Reflection</h3>
+              <span class="chip blue" id="featuredProgressChip">70% Complete</span>
+            </div>
+            <p class="muted" id="featuredProjectLabel">Project: -</p>
+
+            <div class="guide-progress-meta">
+              <div>
+                <p>Progress</p>
+                <strong id="featuredProgressText">70%</strong>
+              </div>
+              <div class="time-remaining">
+                <p>Estimated Time Remaining</p>
+                <strong id="featuredTime">8 minutes</strong>
+              </div>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="featuredProgressFill" style="--value:70%"></div>
+            </div>
+
+            <div class="guide-featured-actions">
+              <button class="primary-btn" id="continueReflectionBtn">Continue Reflection</button>
+              <button class="secondary-guide-btn" id="secondaryStartBtn">Start New Reflection</button>
+            </div>
+          </div>
+          <div class="guide-featured-visual" aria-hidden="true">
+            <div class="orb a"></div>
+            <div class="orb b"></div>
+            <div class="stack"><span></span><span></span><span></span></div>
+          </div>
+        </section>
+
+        <section class="card glass-card guide-stepper-card requires-project" aria-label="Reflection steps">
+          <div class="card-head">
+            <h3>Reflection Steps</h3>
+            <p class="muted" id="stepStatusText">Step 4 of 6 - Technical Learning</p>
+          </div>
+          <ol class="guide-stepper" id="reflectionStepper"></ol>
+        </section>
+
+        <section class="guide-main-grid requires-project">
+          <article class="card glass-card reflection-card" aria-label="Current reflection question">
+            <div class="card-head">
+              <h3>Current Reflection</h3>
+              <button class="section-toggle icon-btn" data-target="reflectionBody" aria-expanded="true" aria-label="Collapse current reflection section">
+                <i data-lucide="chevron-up"></i>
+              </button>
+            </div>
+
+            <div class="section-body" id="reflectionBody">
+              <p class="reflection-question" id="reflectionQuestionText">
+                What was the biggest technical challenge you encountered during this project?
+              </p>
+              <label class="visually-hidden" for="reflectionAnswer">Reflection answer</label>
+              <textarea
+                id="reflectionAnswer"
+                class="reflection-textarea"
+                placeholder="Describe your experience..."
+                rows="8"
+              ></textarea>
+
+              <div class="reflection-tools-head">
+                <h4>AI Assistance</h4>
+                <button class="chip-action-btn" id="toggleSuggestionsBtn" aria-pressed="false">
+                  Toggle AI Suggestions
+                </button>
+              </div>
+
+              <div class="assist-chips" id="assistChipsWrap">
+                <button class="assist-chip" data-action="Explain Concepts">Explain Concepts</button>
+                <button class="assist-chip" data-action="Suggest an Answer Structure">Suggest an Answer Structure</button>
+                <button class="assist-chip" data-action="Help Me Reflect">Help Me Reflect</button>
+                <button class="assist-chip" data-action="Show Examples">Show Examples</button>
+                <button class="assist-chip" data-action="Improve My Writing">Improve My Writing</button>
+              </div>
+
+              <div class="reflection-card-actions">
+                <button class="primary-btn" id="saveProgressBtn">Save Progress</button>
+                <button class="secondary-guide-btn" id="nextStepBtn">Next Step</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card glass-card insights-card" aria-label="AI insights">
+            <div class="card-head">
+              <h3>AI Insights</h3>
+              <button class="section-toggle icon-btn" data-target="insightsBody" aria-expanded="true" aria-label="Collapse AI insights section">
+                <i data-lucide="chevron-up"></i>
+              </button>
+            </div>
+
+            <div class="section-body" id="insightsBody">
+              <div class="insight-group">
+                <h4>Detected Skills</h4>
+                <ul>
+                  <li>Backend Development</li>
+                  <li>REST API Design</li>
+                  <li>Database Design</li>
+                  <li>Problem Solving</li>
+                </ul>
+              </div>
+
+              <div class="insight-group">
+                <h4>Suggested Improvements</h4>
+                <ul>
+                  <li>Add authentication</li>
+                  <li>Improve API validation</li>
+                  <li>Deploy to Azure</li>
+                  <li>Write unit tests</li>
+                </ul>
+              </div>
+
+              <div class="confidence-wrap">
+                <span>Confidence</span>
+                <strong>92%</strong>
+              </div>
+              <p class="confidence-note">Based on your reflection and project details.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="guide-secondary-grid requires-project">
+          <article class="card glass-card learning-card" aria-label="Learning opportunities">
+            <div class="card-head">
+              <h3>Learning Opportunities</h3>
+              <button class="section-toggle icon-btn" data-target="learningBody" aria-expanded="true" aria-label="Collapse learning opportunities section">
+                <i data-lucide="chevron-up"></i>
+              </button>
+            </div>
+
+            <div class="section-body" id="learningBody">
+              <div class="expand-item" data-expand-item>
+                <div class="expand-head">
+                  <div>
+                    <h4>Learn JWT Authentication</h4>
+                    <p>Difficulty: Medium · 2 hours</p>
+                  </div>
+                  <button class="expand-btn" data-expand-toggle aria-expanded="false">Learn More</button>
+                </div>
+                <div class="expand-content" hidden>
+                  Practice token generation, middleware protection, and secure session expiry patterns.
+                </div>
+              </div>
+
+              <div class="expand-item" data-expand-item>
+                <div class="expand-head">
+                  <div>
+                    <h4>Explore Docker Containers</h4>
+                    <p>Difficulty: Medium · 3 hours</p>
+                  </div>
+                  <button class="expand-btn" data-expand-toggle aria-expanded="false">Learn More</button>
+                </div>
+                <div class="expand-content" hidden>
+                  Containerize your API and run local development with environment-specific configuration.
+                </div>
+              </div>
+
+              <div class="expand-item" data-expand-item>
+                <div class="expand-head">
+                  <div>
+                    <h4>Practice Unit Testing</h4>
+                    <p>Difficulty: Easy · 90 minutes</p>
+                  </div>
+                  <button class="expand-btn" data-expand-toggle aria-expanded="false">Learn More</button>
+                </div>
+                <div class="expand-content" hidden>
+                  Build test coverage for routes, validation logic, and failure states with mocked dependencies.
+                </div>
+              </div>
+
+              <div class="expand-item" data-expand-item>
+                <div class="expand-head">
+                  <div>
+                    <h4>Deploy APIs using Azure App Service</h4>
+                    <p>Difficulty: Advanced · 4 hours</p>
+                  </div>
+                  <button class="expand-btn" data-expand-toggle aria-expanded="false">Learn More</button>
+                </div>
+                <div class="expand-content" hidden>
+                  Publish your service, connect environment variables, and monitor deployments in production.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card glass-card recommendation-card" aria-label="AI project recommendations">
+            <div class="card-head">
+              <h3>AI Project Recommendations</h3>
+              <button class="section-toggle icon-btn" data-target="recommendationBody" aria-expanded="true" aria-label="Collapse project recommendations section">
+                <i data-lucide="chevron-up"></i>
+              </button>
+            </div>
+
+            <div class="section-body" id="recommendationBody">
+              <div class="recommend-row" data-expand-item>
+                <div>
+                  <h4>Add user authentication</h4>
+                  <span class="chip warning">Medium</span>
+                </div>
+                <button class="expand-btn" data-expand-toggle aria-expanded="false">Details</button>
+                <p class="expand-content" hidden>Add login routes, hashed passwords, and JWT middleware to secure sensitive endpoints.</p>
+              </div>
+
+              <div class="recommend-row" data-expand-item>
+                <div>
+                  <h4>Implement role-based authorization</h4>
+                  <span class="chip warning">Advanced</span>
+                </div>
+                <button class="expand-btn" data-expand-toggle aria-expanded="false">Details</button>
+                <p class="expand-content" hidden>Define user roles and access policies for create, update, and delete operations.</p>
+              </div>
+
+              <div class="recommend-row" data-expand-item>
+                <div>
+                  <h4>Improve error handling</h4>
+                  <span class="chip success">Easy</span>
+                </div>
+                <button class="expand-btn" data-expand-toggle aria-expanded="false">Details</button>
+                <p class="expand-content" hidden>Standardize API error responses with status codes and user-friendly messages.</p>
+              </div>
+
+              <div class="recommend-row" data-expand-item>
+                <div>
+                  <h4>Create API documentation</h4>
+                  <span class="chip success">Easy</span>
+                </div>
+                <button class="expand-btn" data-expand-toggle aria-expanded="false">Details</button>
+                <p class="expand-content" hidden>Document endpoints, payloads, and response structures to improve maintainability.</p>
+              </div>
+
+              <div class="recommend-row" data-expand-item>
+                <div>
+                  <h4>Deploy to Azure with Docker</h4>
+                  <span class="chip blue">Advanced</span>
+                </div>
+                <button class="expand-btn" data-expand-toggle aria-expanded="false">Details</button>
+                <p class="expand-content" hidden>Containerize the service and automate deployment for scalable, production-ready hosting.</p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="guide-tertiary-grid requires-project">
+          <article class="card glass-card skills-card" aria-label="Skills identified">
+            <div class="card-head">
+              <h3>Skills Identified</h3>
+              <button class="section-toggle icon-btn" data-target="skillsBody" aria-expanded="true" aria-label="Collapse skills section">
+                <i data-lucide="chevron-up"></i>
+              </button>
+            </div>
+            <div class="section-body" id="skillsBody">
+              <h4>Technical Skills</h4>
+              <div class="skill-chip-wrap">
+                <span class="skill-pill tech">Node.js</span>
+                <span class="skill-pill tech">MongoDB</span>
+                <span class="skill-pill tech">Express</span>
+                <span class="skill-pill tech">REST APIs</span>
+                <span class="skill-pill tech">Azure</span>
+              </div>
+
+              <h4>Soft Skills</h4>
+              <div class="skill-chip-wrap">
+                <span class="skill-pill soft">Communication</span>
+                <span class="skill-pill soft">Problem Solving</span>
+                <span class="skill-pill soft">Critical Thinking</span>
+                <span class="skill-pill soft">Team Collaboration</span>
+                <span class="skill-pill soft">Leadership</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card glass-card portfolio-preview-card" aria-label="Professional portfolio preview">
+            <div class="card-head">
+              <h3>Professional Portfolio Preview</h3>
+              <button class="section-toggle icon-btn" data-target="portfolioBody" aria-expanded="true" aria-label="Collapse portfolio preview section">
+                <i data-lucide="chevron-up"></i>
+              </button>
+            </div>
+
+            <div class="section-body" id="portfolioBody">
+              <p id="portfolioSummary">
+                Designed and developed a RESTful Inventory Control API using Express and MongoDB. Implemented CRUD operations, optimized database queries, and demonstrated strong backend development and problem-solving skills.
+              </p>
+
+              <div class="portfolio-actions">
+                <button class="secondary-guide-btn" id="editSummaryBtn">Edit Summary</button>
+                <button class="secondary-guide-btn" id="copySummaryBtn">Copy Summary</button>
+                <button class="primary-btn" id="addToPortfolioBtn">Add to Portfolio</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card glass-card interview-card" aria-label="Interview practice">
+            <div class="card-head">
+              <h3>Interview Practice</h3>
+              <button class="section-toggle icon-btn" data-target="interviewBody" aria-expanded="true" aria-label="Collapse interview practice section">
+                <i data-lucide="chevron-up"></i>
+              </button>
+            </div>
+
+            <div class="section-body" id="interviewBody">
+              <p class="interview-practice-note">
+                Write your own answer first. AI will only review clarity and mistakes so you learn and understand.
+              </p>
+              <ul class="interview-list">
+                <li>Tell me about this project</li>
+                <li>Explain your database design</li>
+                <li>Describe your biggest challenge</li>
+                <li>What would you improve?</li>
+              </ul>
+
+              <label class="visually-hidden" for="interviewQuestionSelect">Select interview question</label>
+              <select id="interviewQuestionSelect" class="interview-select" aria-label="Select interview practice question">
+                <option value="Tell me about this project">Tell me about this project</option>
+                <option value="Explain your database design">Explain your database design</option>
+                <option value="Describe your biggest challenge">Describe your biggest challenge</option>
+                <option value="What would you improve?">What would you improve?</option>
+              </select>
+
+              <label class="visually-hidden" for="interviewAnswerInput">Your interview answer</label>
+              <textarea
+                id="interviewAnswerInput"
+                class="interview-answer"
+                rows="6"
+                placeholder="Write your answer in your own words..."
+              ></textarea>
+
+              <div class="portfolio-actions">
+                <button class="primary-btn" id="reviewAnswerBtn">Review My Answer</button>
+                <button class="secondary-guide-btn" id="clearAnswerBtn">Clear</button>
+              </div>
+
+              <div class="ai-review-box" id="aiReviewBox" hidden aria-live="polite"></div>
+            </div>
+          </article>
+
+          <article class="card glass-card history-card" aria-label="Reflection history">
+            <div class="card-head">
+              <h3>Reflection History</h3>
+              <button class="section-toggle icon-btn" data-target="historyBody" aria-expanded="true" aria-label="Collapse reflection history section">
+                <i data-lucide="chevron-up"></i>
+              </button>
+            </div>
+
+            <div class="section-body" id="historyBody">
+              <div class="history-entry-list">
+                <div class="history-entry">
+                  <div>
+                    <h4>Technical Learning</h4>
+                    <p>Jul 20</p>
+                  </div>
+                  <div class="history-entry-side">
+                    <span class="chip success">Completed</span>
+                    <button class="table-action-btn" data-open-reflection="Inventory API">View Reflection</button>
+                  </div>
+                </div>
+                <div class="history-entry">
+                  <div>
+                    <h4>Career Reflection</h4>
+                    <p>Jul 25</p>
+                  </div>
+                  <div class="history-entry-side">
+                    <span class="chip warning">Draft</span>
+                    <button class="table-action-btn" data-continue-reflection="portfolio-cms">Continue</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+    <script src="ai-guide.js"></script>
+  </body>
+</html>

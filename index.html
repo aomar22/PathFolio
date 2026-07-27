@@ -33,9 +33,9 @@
             <p class="nav-group-label">Workspace</p>
             <a href="index.html" class="nav-item active"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
             <a href="projects.html" class="nav-item"><i data-lucide="folder-kanban"></i><span>Projects</span></a>
-            <a href="#" class="nav-item"><i data-lucide="notebook-pen"></i><span>Reflections</span></a>
-            <a href="#" class="nav-item"><i data-lucide="sparkles"></i><span>AI Guide</span></a>
-            <a href="#" class="nav-item"><i data-lucide="briefcase-business"></i><span>Portfolio Builder</span></a>
+            <a href="ai-reflection-guide.html" class="nav-item"><i data-lucide="sparkles"></i><span>AI Reflection Workspace</span></a>
+            <a href="reflections-log.html" class="nav-item"><i data-lucide="notebook-pen"></i><span>Reflections</span></a>
+            <a href="portfolio-builder.html" class="nav-item"><i data-lucide="briefcase-business"></i><span>Portfolio Builder</span></a>
             <a href="#" class="nav-item"><i data-lucide="badge-check"></i><span>Skills</span></a>
             <a href="#" class="nav-item"><i data-lucide="chart-column"></i><span>Analytics</span></a>
 
@@ -117,29 +117,7 @@
             <p class="encouraging-note">
               You're almost done! Complete your reflection to unlock new AI insights.
             </p>
-            <button class="primary-btn">Continue</button>
-          </article>
-
-          <article class="card ai-guide-card glass-card">
-            <div class="card-head">
-              <h3>AI Reflection Guide</h3>
-              <span class="chip neon">Live</span>
-            </div>
-            <p class="ai-guide-description">
-              Your AI learning companion to help you understand concepts, bridge learning gaps, improve projects, prepare for interviews, and complete reflections.
-            </p>
-            <div class="prompt-box">
-              <i data-lucide="sparkles"></i>
-              <input type="text" placeholder="Ask anything about your project..." />
-              <button><i data-lucide="send"></i></button>
-            </div>
-            <div class="quick-actions-wrap">
-              <button class="quick-action qa-brain">🧠 Explain a Concept</button>
-              <button class="quick-action qa-rocket">🚀 Improve My Project</button>
-              <button class="quick-action qa-growth">📈 Find Learning Gaps</button>
-              <button class="quick-action qa-briefcase">💼 Prepare for Interviews</button>
-              <button class="quick-action qa-reflect">📝 Help Me Reflect</button>
-            </div>
+            <a href="ai-reflection-guide.html" class="primary-btn" aria-label="Continue to reflections page">Continue</a>
           </article>
 
           <article class="card streak-card glass-card">
@@ -255,19 +233,14 @@
 
           <article class="card ai-insight-card glass-card">
             <div class="card-head">
-              <h3>AI Recommendation</h3>
-              <i data-lucide="brain-circuit"></i>
+              <h3>Recommended Reflections</h3>
+              <i data-lucide="notebook-pen"></i>
             </div>
-            <p>
-              Your portfolio demonstrates strong backend development skills.
-            </p>
-            <p class="ai-recommendation-note">
-              To become a stronger Full-Stack Developer, consider adding:
-            </p>
+            <p>Projects that still need reflection work are prioritized here.</p>
             <ul class="ai-recommendation-list">
-              <li>JWT Authentication</li>
-              <li>Docker</li>
-              <li>Azure Deployment</li>
+              <li><a href="ai-reflection-guide.html" class="dashboard-recommend-link">Inventory Control API · 70% complete</a></li>
+              <li><a href="ai-reflection-guide.html" class="dashboard-recommend-link">Smart Attendance Tracker · No reflection yet</a></li>
+              <li><a href="ai-reflection-guide.html" class="dashboard-recommend-link">Data Visualization App · Start reflection</a></li>
             </ul>
           </article>
 
@@ -281,7 +254,7 @@
                 <li>✔ Share secure portfolio link</li>
                 <li>✔ Tailor portfolio for each job application</li>
               </ul>
-              <button class="primary-btn">Build Your Portfolio</button>
+              <a href="portfolio-builder.html" class="primary-btn">Build Your Portfolio</a>
             </div>
             <div class="folio-illus" aria-hidden="true">
               <div class="folio-sheet"></div>

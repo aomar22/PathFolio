@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reflections - PathFolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="reflections-log-ext.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar glass-card">
+        <div class="sidebar-main">
+          <div class="brand">
+            <img src="logo.png" alt="PathFolio logo" class="brand-logo" />
+            <div>
+              <p class="brand-tagline">
+                <strong>PathFolio</strong><br />
+                Document.<br />
+                Reflect.<br />
+                Grow.
+              </p>
+            </div>
+          </div>
+
+          <nav class="nav-list">
+            <p class="nav-group-label">Workspace</p>
+            <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+            <a href="projects.html" class="nav-item"><i data-lucide="folder-kanban"></i><span>Projects</span></a>
+            <a href="ai-reflection-guide.html" class="nav-item"><i data-lucide="sparkles"></i><span>AI Reflection Workspace</span></a>
+            <a href="reflections-log.html" class="nav-item active"><i data-lucide="notebook-pen"></i><span>Reflections</span></a>
+            <a href="portfolio-builder.html" class="nav-item"><i data-lucide="briefcase-business"></i><span>Portfolio Builder</span></a>
+            <a href="#" class="nav-item"><i data-lucide="badge-check"></i><span>Skills</span></a>
+            <a href="#" class="nav-item"><i data-lucide="chart-column"></i><span>Analytics</span></a>
+
+            <p class="nav-group-label nav-utility">Utilities</p>
+            <a href="#" class="nav-item"><i data-lucide="settings"></i><span>Settings</span></a>
+            <a href="#" class="nav-item"><i data-lucide="log-out"></i><span>Log Out</span></a>
+            <a href="#" class="nav-item"><i data-lucide="circle-help"></i><span>Help</span></a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="top-nav glass-card">
+          <label class="search-wrap">
+            <i data-lucide="search"></i>
+            <input type="text" placeholder="Search projects, skills, reflections..." />
+          </label>
+
+          <div class="top-actions">
+            <button class="icon-btn"><i data-lucide="bell"></i></button>
+            <button class="icon-btn" id="themeToggle" aria-label="Toggle light mode">
+              <i data-lucide="sun-moon"></i>
+            </button>
+            <button class="icon-btn ai"><i data-lucide="bot"></i></button>
+
+            <div class="user-meta">
+              <img src="generic-avatar.svg" alt="Generic user avatar" />
+              <div>
+                <h4>User</h4>
+                <p>Computer Programming</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="log-header">
+          <div class="log-header-top">
+            <h1>Reflections</h1>
+            <span class="chip blue log-count-chip" id="headerReflectionCount">0 Reflections</span>
+          </div>
+          <p>Review, search, and manage all your project reflections.</p>
+        </section>
+
+        <section class="log-summary-grid" aria-label="Reflection summary cards">
+          <article class="summary-mini-card glass-card">
+            <p>Total Reflections</p>
+            <h3 id="totalReflectionsCount">0</h3>
+          </article>
+          <article class="summary-mini-card glass-card">
+            <p>Completed</p>
+            <h3 id="completedReflectionsCount">0</h3>
+          </article>
+          <article class="summary-mini-card glass-card">
+            <p>Drafts</p>
+            <h3 id="draftReflectionsCount">0</h3>
+          </article>
+          <article class="summary-mini-card glass-card">
+            <p>Projects Reflected</p>
+            <h3 id="projectsReflectedCount">0</h3>
+          </article>
+        </section>
+
+        <section class="card glass-card log-filters-card" aria-label="Reflection search and filters">
+          <div class="log-filter-grid">
+            <label class="search-wrap log-search-wrap">
+              <i data-lucide="search"></i>
+              <input id="reflectionLibrarySearch" type="text" placeholder="Search reflections..." />
+            </label>
+
+            <select id="projectFilter" class="log-select" aria-label="Filter by project">
+              <option value="">All Projects</option>
+            </select>
+
+            <select id="statusFilter" class="log-select" aria-label="Filter by status">
+              <option value="">All Status</option>
+              <option value="Completed">Completed</option>
+              <option value="Draft">Draft</option>
+              <option value="In Progress">In Progress</option>
+            </select>
+
+            <select id="sortFilter" class="log-select" aria-label="Sort reflections">
+              <option value="updated-desc">Newest First</option>
+              <option value="updated-asc">Last Updated: Oldest</option>
+              <option value="title-asc">Reflection Title</option>
+              <option value="project-asc">Project</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="card glass-card reflections-log-card" aria-label="All project reflections log">
+          <div class="card-head">
+            <h3>Reflection Library</h3>
+          </div>
+
+          <table class="log-table" id="reflectionsTable">
+            <thead>
+              <tr>
+                <th>Reflection</th>
+                <th>Project</th>
+                <th>Last Updated</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="reflectionsTableBody"></tbody>
+          </table>
+        </section>
+
+        <section class="card glass-card reflections-empty-card" id="emptyStateCard" hidden aria-label="Empty reflections state">
+          <div class="empty-state-illustration">
+            <i data-lucide="notebook-pen"></i>
+          </div>
+          <h3>No reflections yet.</h3>
+          <p>Start reflecting on one of your projects to begin documenting your learning journey.</p>
+          <a href="ai-reflection-guide.html" class="primary-btn">Start AI Reflection</a>
+        </section>
+
+        <section class="card glass-card viewer-card" id="viewerCard" hidden aria-live="polite">
+          <div class="card-head">
+            <h3 id="viewerTitle">View Reflection</h3>
+            <span class="chip success" id="viewerStatusChip">Completed</span>
+          </div>
+          <div class="viewer-meta">
+            <span id="viewerProject"></span>
+            <span id="viewerUpdated"></span>
+          </div>
+          <div class="viewer-content" id="viewerContent"></div>
+          <div class="editor-actions">
+            <button class="secondary-log-btn" id="closeViewerBtn">Close</button>
+          </div>
+        </section>
+
+        <section class="card glass-card editor-card" id="editorCard" hidden aria-live="polite">
+          <div class="card-head">
+            <h3 id="editorTitle">Edit Reflection</h3>
+            <span class="chip warning" id="editorStatusChip">In Progress</span>
+          </div>
+
+          <label for="reflectionEditor" class="editor-label">Reflection Notes</label>
+          <textarea id="reflectionEditor" class="editor-textarea" rows="10" placeholder="Write your reflection for this project..."></textarea>
+
+          <div class="editor-actions">
+            <button class="secondary-log-btn" id="cancelEditBtn">Cancel</button>
+            <button class="primary-btn" id="saveEditBtn">Save Reflection</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+    <script src="reflections-log.js"></script>
+  </body>
+</html>

@@ -1,0 +1,318 @@
+/* ======================================
+   PORTFOLIO BUILDER PAGE STYLES
+   ====================================== */
+
+.portfolio-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 5px 2px;
+}
+
+.portfolio-page-header h1 {
+  margin: 0 0 8px;
+  font-size: 34px;
+  letter-spacing: -0.5px;
+}
+
+.portfolio-page-header p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 760px;
+  line-height: 1.45;
+}
+
+.portfolio-header-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.secondary-portfolio-btn {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  padding: 11px 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.portfolio-top-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 14px;
+}
+
+.completion-card,
+.career-portfolio-card,
+.portfolio-section-card,
+.publishing-card {
+  padding: 18px;
+}
+
+.completion-meta strong {
+  display: block;
+  font-size: 26px;
+  margin-top: 2px;
+}
+
+.completion-meta p {
+  margin: 4px 0 12px;
+  color: var(--muted);
+}
+
+.career-status-copy {
+  margin: 0;
+  color: #dce5f8;
+  line-height: 1.5;
+}
+
+.completion-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.completion-list li {
+  color: var(--muted);
+}
+
+.completion-list li.done {
+  color: #dff7ea;
+}
+
+.career-status {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.integrity-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+.portfolio-skills-split h5 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.portfolio-section-actions,
+.publishing-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.portfolio-main-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 14px;
+}
+
+.portfolio-main-grid.simplified {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.portfolio-sections-stack,
+.portfolio-side-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.portfolio-main-grid.simplified .portfolio-sections-stack {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.portfolio-section-copy {
+  margin: 6px 0 0;
+  color: #dce5f8;
+  line-height: 1.55;
+}
+
+.portfolio-card-subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.content-preview-block + .content-preview-block {
+  margin-top: 14px;
+}
+
+.content-preview-block h5 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.content-bullet-preview {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: #dce5f8;
+}
+
+.secondary-portfolio-btn.small {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.inline-editor {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.inline-editor[hidden],
+.editor-overlay[hidden],
+.side-editor-panel[hidden] {
+  display: none !important;
+}
+
+.editor-list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.bullet-editor-list {
+  display: grid;
+  gap: 10px;
+}
+
+.bullet-editor-item {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+}
+
+.bullet-editor-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: start;
+}
+
+.bullet-input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  padding: 10px 12px;
+  font: inherit;
+  line-height: 1.45;
+}
+
+.bullet-controls {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.bullet-control-btn {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  padding: 7px 10px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.inline-editor-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+}
+
+.publishing-label {
+  margin: 6px 0 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.toast-wrap {
+  position: fixed;
+  bottom: 20px;
+  right: 24px;
+  display: grid;
+  gap: 8px;
+  z-index: 1200;
+}
+
+.toast {
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  background: rgba(11, 16, 32, 0.95);
+  color: #e8f5ff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  min-width: 220px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .secondary-portfolio-btn,
+[data-theme="light"] .completion-card,
+[data-theme="light"] .career-portfolio-card,
+[data-theme="light"] .portfolio-section-card,
+[data-theme="light"] .publishing-card {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+[data-theme="light"] .portfolio-section-copy,
+[data-theme="light"] .integrity-note {
+  color: #334155;
+}
+
+[data-theme="light"] .career-status-copy,
+[data-theme="light"] .content-bullet-preview {
+  color: #334155;
+}
+
+[data-theme="light"] .bullet-editor-item,
+[data-theme="light"] .bullet-input,
+[data-theme="light"] .bullet-control-btn {
+  background: rgba(255, 255, 255, 0.97);
+}
+
+[data-theme="light"] .completion-list li.done {
+  color: #166534;
+}
+
+[data-theme="light"] .toast {
+  background: rgba(255, 255, 255, 0.96);
+  color: #0f172a;
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+@media (max-width: 1120px) {
+  .portfolio-top-grid,
+  .portfolio-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

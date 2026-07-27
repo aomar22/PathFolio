@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Builder - PathFolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="portfolio-builder-ext.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar glass-card">
+        <div class="sidebar-main">
+          <div class="brand">
+            <img src="logo.png" alt="PathFolio logo" class="brand-logo" />
+            <div>
+              <p class="brand-tagline">
+                <strong>PathFolio</strong><br />
+                Document.<br />
+                Reflect.<br />
+                Grow.
+              </p>
+            </div>
+          </div>
+
+          <nav class="nav-list">
+            <p class="nav-group-label">Workspace</p>
+            <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+            <a href="projects.html" class="nav-item"><i data-lucide="folder-kanban"></i><span>Projects</span></a>
+            <a href="ai-reflection-guide.html" class="nav-item"><i data-lucide="sparkles"></i><span>AI Reflection Workspace</span></a>
+            <a href="reflections-log.html" class="nav-item"><i data-lucide="notebook-pen"></i><span>Reflections</span></a>
+            <a href="portfolio-builder.html" class="nav-item active"><i data-lucide="briefcase-business"></i><span>Portfolio Builder</span></a>
+            <a href="#" class="nav-item"><i data-lucide="badge-check"></i><span>Skills</span></a>
+            <a href="#" class="nav-item"><i data-lucide="chart-column"></i><span>Analytics</span></a>
+
+            <p class="nav-group-label nav-utility">Utilities</p>
+            <a href="#" class="nav-item"><i data-lucide="settings"></i><span>Settings</span></a>
+            <a href="#" class="nav-item"><i data-lucide="log-out"></i><span>Log Out</span></a>
+            <a href="#" class="nav-item"><i data-lucide="circle-help"></i><span>Help</span></a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="top-nav glass-card">
+          <label class="search-wrap">
+            <i data-lucide="search"></i>
+            <input type="text" placeholder="Search portfolio sections, projects, skills..." />
+          </label>
+
+          <div class="top-actions">
+            <button class="icon-btn"><i data-lucide="bell"></i></button>
+            <button class="icon-btn" id="themeToggle" aria-label="Toggle light mode">
+              <i data-lucide="sun-moon"></i>
+            </button>
+            <button class="icon-btn ai"><i data-lucide="bot"></i></button>
+
+            <div class="user-meta">
+              <img src="generic-avatar.svg" alt="Generic user avatar" />
+              <div>
+                <h4>User</h4>
+                <p>Computer Programming</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="portfolio-page-header">
+          <div>
+            <h1>Portfolio Builder</h1>
+            <p>Build, customize, and publish your professional portfolio using your projects and reflections.</p>
+          </div>
+          <div class="portfolio-header-actions">
+            <button class="secondary-portfolio-btn" id="previewPortfolioBtn">Preview Portfolio</button>
+            <button class="primary-btn" id="publishPortfolioBtn">Publish Portfolio</button>
+          </div>
+        </section>
+
+        <section class="portfolio-top-grid">
+          <article class="card glass-card completion-card">
+            <div class="card-head">
+              <h3>Portfolio Completion</h3>
+              <span class="chip blue">85% Complete</span>
+            </div>
+            <div class="completion-meta">
+              <strong>85% Complete</strong>
+              <p>Final step before sharing professionally.</p>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="--value:85%"></div>
+            </div>
+            <ul class="completion-list">
+              <li class="done">Profile completed</li>
+              <li class="done">About Me completed</li>
+              <li class="done">Portfolio summary completed</li>
+              <li>Portfolio ready for career use</li>
+            </ul>
+          </article>
+
+          <article class="card glass-card career-portfolio-card">
+            <div class="card-head">
+              <h3>Career Portfolio</h3>
+              <span class="chip success">In Progress</span>
+            </div>
+            <p class="publishing-label">Portfolio Status</p>
+            <strong class="career-status">In Progress</strong>
+            <p class="career-status-copy">
+              Some projects should be expanded or enhanced before being included in your professional portfolio.
+            </p>
+            <div class="portfolio-section-actions publishing-actions">
+              <button class="secondary-portfolio-btn" id="previewFullPortfolioBtn">Preview Career Portfolio</button>
+              <button class="primary-btn" id="generateCareerPortfolioBtn">Generate Career-Ready Version</button>
+              <button class="secondary-portfolio-btn" id="exportPortfolioPdfBtn">Export Portfolio PDF</button>
+            </div>
+            <p class="integrity-note">
+              PathFolio encourages students to showcase projects that have been refined, expanded, or transformed beyond their original academic submission before sharing them professionally.
+            </p>
+          </article>
+        </section>
+
+        <section class="portfolio-main-grid simplified">
+          <div class="portfolio-sections-stack">
+            <article class="card glass-card portfolio-section-card">
+              <div class="card-head">
+                <h3>About Me</h3>
+                <span class="chip warning">Needs Review</span>
+              </div>
+              <p class="portfolio-section-copy">Backend-focused student developer with experience building academic APIs, data-driven applications, and structured project reflections that demonstrate technical growth and professional readiness.</p>
+              <div class="portfolio-section-actions">
+                <button class="secondary-portfolio-btn" data-portfolio-action="Edit About Me">Edit</button>
+                <button class="secondary-portfolio-btn" data-portfolio-action="Preview About Me">Preview</button>
+              </div>
+            </article>
+
+            <article class="card glass-card portfolio-section-card">
+              <div class="card-head">
+                <div>
+                  <h3>Resume Content</h3>
+                  <p class="portfolio-card-subtitle">Review and customize career-ready resume content generated from your projects and reflections.</p>
+                </div>
+                <span class="chip neon">Generated</span>
+              </div>
+              <div class="content-preview-block">
+                <h5>Professional Summary</h5>
+                <p class="portfolio-section-copy" id="resumeSummaryText">Backend-focused Computer Programming student with experience developing REST APIs, working with MongoDB, and deploying applications using Azure. Strong problem-solving and communication skills demonstrated through academic projects.</p>
+              </div>
+              <div class="content-preview-block">
+                <h5>Sample Resume Bullets</h5>
+                <ul class="content-bullet-preview" id="resumeBulletsPreview">
+                  <li>Developed a RESTful Inventory Control API using Express and MongoDB.</li>
+                  <li>Implemented CRUD operations, input validation, and structured error handling.</li>
+                </ul>
+              </div>
+              <div class="portfolio-section-actions">
+                <button class="secondary-portfolio-btn" id="editResumeContentBtn">Edit Resume Content</button>
+                <button class="secondary-portfolio-btn" id="copyResumeSummaryBtn">Copy Content</button>
+              </div>
+
+              <section class="inline-editor" id="resumeInlineEditor" hidden>
+                <label class="editor-label" for="resumeSummaryInput">Professional Summary</label>
+                <textarea id="resumeSummaryInput" class="editor-textarea" rows="5"></textarea>
+
+                <div class="editor-list-head">
+                  <label class="editor-label">Resume Bullet Points</label>
+                  <button class="secondary-portfolio-btn small" id="addResumeBulletBtn">Add Bullet</button>
+                </div>
+                <div id="resumeBulletsEditor" class="bullet-editor-list"></div>
+
+                <div class="inline-editor-actions">
+                  <button class="primary-btn" id="saveResumeInlineBtn">Save Changes</button>
+                  <button class="secondary-portfolio-btn" id="copyResumeInlineBtn">Copy All</button>
+                  <button class="secondary-portfolio-btn" id="cancelResumeInlineBtn">Cancel</button>
+                </div>
+              </section>
+            </article>
+
+            <article class="card glass-card portfolio-section-card">
+              <div class="card-head">
+                <div>
+                  <h3>Cover Letter Content</h3>
+                  <p class="portfolio-card-subtitle">Customize reusable content based on your projects and reflections.</p>
+                </div>
+                <span class="chip blue">Reusable</span>
+              </div>
+              <p class="portfolio-section-copy" id="coverLetterPreviewText">Through developing projects such as the Inventory Control API, I strengthened my backend development, database design, and problem-solving skills while learning how to build scalable REST APIs.</p>
+              <div class="portfolio-section-actions">
+                <button class="secondary-portfolio-btn" id="editCoverLetterContentBtn">Edit Cover Letter Content</button>
+                <button class="secondary-portfolio-btn" id="copyCoverLetterContentBtn">Copy Content</button>
+              </div>
+
+              <section class="inline-editor" id="coverLetterInlineEditor" hidden>
+                <label class="editor-label" for="coverLetterOpeningInput">Opening Paragraph</label>
+                <textarea id="coverLetterOpeningInput" class="editor-textarea" rows="4"></textarea>
+
+                <label class="editor-label" for="coverLetterExperienceInput">Experience &amp; Skills Paragraph</label>
+                <textarea id="coverLetterExperienceInput" class="editor-textarea" rows="4"></textarea>
+
+                <label class="editor-label" for="coverLetterClosingInput">Closing Paragraph</label>
+                <textarea id="coverLetterClosingInput" class="editor-textarea" rows="4"></textarea>
+
+                <div class="inline-editor-actions">
+                  <button class="primary-btn" id="saveCoverLetterInlineBtn">Save Changes</button>
+                  <button class="secondary-portfolio-btn" id="copyCoverLetterInlineBtn">Copy All</button>
+                  <button class="secondary-portfolio-btn" id="cancelCoverLetterInlineBtn">Cancel</button>
+                </div>
+              </section>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+    <script src="portfolio-builder.js"></script>
+  </body>
+</html>
