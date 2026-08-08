@@ -103,13 +103,13 @@ const analyticsData = {
     },
     {
       icon: "layers-3",
-      title: "Your strongest evidence comes from backend projects",
+      title: "Backend development is your strongest area",
       description:
         "Your API and database projects currently provide the clearest examples of technical problem solving.",
     },
     {
       icon: "briefcase-business",
-      title: "Your portfolio needs more outcome-focused content",
+      title: "Show more project results in your reflections",
       description:
         "Add measurable project results and explain how your work improved the final solution.",
     },
