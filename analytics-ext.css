@@ -108,7 +108,7 @@
 
 .analytics-main-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.8fr);
+  grid-template-columns: 1fr;
   gap: 18px;
 }
 
@@ -265,6 +265,23 @@
   margin-top: 3px;
   color: var(--muted);
   font-size: 13px;
+}
+
+[data-theme="light"] .readiness-circle {
+  background:
+    conic-gradient(
+      #2563eb var(--readiness-value),
+      rgba(15, 23, 42, 0.2) 0deg
+    );
+}
+
+[data-theme="light"] .readiness-circle::before {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.16);
+}
+
+[data-theme="light"] .readiness-circle-inner strong {
+  color: #0f172a;
 }
 
 .readiness-list {

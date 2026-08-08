@@ -32,16 +32,14 @@ if (themeToggle) {
 
 lucide.createIcons();
 
-const animateProgressBars = () => {
+const initializeProgressBars = () => {
   document.querySelectorAll('.progress-fill').forEach((bar) => {
     const target = bar.style.getPropertyValue('--value');
-    requestAnimationFrame(() => {
-      bar.style.width = target;
-    });
+    bar.style.width = target;
   });
 };
 
-const animateOverallRing = () => {
+const initializeOverallRing = () => {
   const ring = document.getElementById('overallRing');
   if (!ring) {
     return;
@@ -52,12 +50,7 @@ const animateOverallRing = () => {
   const percent = 78;
 
   ring.style.strokeDasharray = `${circumference}`;
-  ring.style.strokeDashoffset = `${circumference}`;
-
-  requestAnimationFrame(() => {
-    ring.style.transition = 'stroke-dashoffset 1.35s ease';
-    ring.style.strokeDashoffset = `${circumference * (1 - percent / 100)}`;
-  });
+  ring.style.strokeDashoffset = `${circumference * (1 - percent / 100)}`;
 };
 
 const drawRadar = () => {
@@ -170,6 +163,6 @@ const drawRadar = () => {
   render();
 };
 
-animateProgressBars();
-animateOverallRing();
+initializeProgressBars();
+initializeOverallRing();
 drawRadar();

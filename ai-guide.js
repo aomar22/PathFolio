@@ -288,21 +288,30 @@ const handleExpanders = () => {
 };
 
 const handleSectionToggles = () => {
-  document.querySelectorAll(".section-toggle").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const targetId = btn.getAttribute("data-target");
-      const target = targetId ? document.getElementById(targetId) : null;
-      if (!target) {
-        return;
-      }
+  const setSectionState = (button, section, expanded) => {
+    button.setAttribute("aria-expanded", expanded ? "true" : "false");
 
+    if (expanded) {
+      section.removeAttribute("hidden");
+      button.classList.remove("is-collapsed");
+    } else {
+      section.setAttribute("hidden", "hidden");
+      button.classList.add("is-collapsed");
+    }
+  };
+
+  document.querySelectorAll(".section-toggle").forEach((btn) => {
+    const targetId = btn.getAttribute("data-target");
+    const target = targetId ? document.getElementById(targetId) : null;
+    if (!target) {
+      return;
+    }
+
+    setSectionState(btn, target, false);
+
+    btn.addEventListener("click", () => {
       const isExpanded = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", isExpanded ? "false" : "true");
-      if (isExpanded) {
-        target.setAttribute("hidden", "hidden");
-      } else {
-        target.removeAttribute("hidden");
-      }
+      setSectionState(btn, target, !isExpanded);
     });
   });
 };

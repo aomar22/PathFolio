@@ -1147,3 +1147,15 @@ body {
     padding: 10px;
   }
 }
+
+/* Global no-motion mode for a plain, static UI. */
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+.progress-fill::after {
+  display: none !important;
+}
